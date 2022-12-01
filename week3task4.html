@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <style>
+        body {
+            width: 100%;
+            height: 100%;
+            background-image: url("https://c1.wallpaperflare.com/preview/127/366/443/library-book-bookshelf-read.jpg");
+        }
+
+        .cplogin {
+            display: flex;
+            justify-content: space-between;
+            margin: 100px 130px 100px 220px;
+        }
+
+        .caption {
+            width: 650px;
+            font-weight: 500;
+            font-size: 52px;
+            font-family: 'Times New Roman', Times, serif;
+            line-height: 70px;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            padding: 100px;
+        }
+
+        .loginpage {
+            width: 450px;
+            background-color: #F7F7F7;
+            box-shadow:30px 10px 30px 10px rgba(0, 0, 0, 0.58);
+        }
+
+        .innerlogin {
+            height: 100%;
+            margin: 25px 25px 30px 25px;
+        }
+
+        .loginhead {
+            text-align: center;
+            padding-bottom: 30px;
+        }
+
+        .inp {
+            width: 100%;
+            height: 60px;
+            background-color: white;
+            border: none;
+            border-radius: 15px;
+            padding-left: 20px;
+            box-shadow:10px 5px 15px 5px rgba(158, 153, 153,0.58);
+        }
+
+        .submit {
+            display: flex;
+            justify-content: center;
+        }
+
+        .check {
+            width: 14px;
+            height: 12px;
+            margin-left: 10px;
+            margin-right: 2px;
+        }
+
+
+        .sub {
+            width: 100%;
+            height: 60px;
+            border: none;
+            border-radius: 15px;
+            margin: 70px 0px 10px 0px;
+            margin-top: 70px;
+            text-align: center;
+            font-weight: bold;
+            font-size: medium;
+            background-color: black;
+            color: white;
+            box-shadow:10px 5px 15px 5px rgba(158, 153, 153,0.58);
+            transition: 0.5s;
+        }
+
+        .sub:hover {
+            opacity: 50%;
+        }
+
+        .err {
+            margin: 0px;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 15px;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cplogin">
+        <div class="caption">
+            "Is Setting a Question Paper difficult? <i>we don't think so!!</i> "
+        </div>
+        <div class="loginpage">
+            <div class="innerlogin">
+                <div class="loginhead">
+                    <h1>Log in</h1>
+                </div>
+                <div>
+                    <div style="margin: 20px 0px 10px 0px">
+                        <p class="err" id="uerr"></p>
+                        <input class="inp" type="text" placeholder="Enter Username" name="Username" id="usname" >
+                    </div>
+                    <div style="margin: 20px 0px 10px 0px">
+                        <p class="err" id="perr"></p>
+                        <input class="inp" type="password" id="pwd" placeholder="Enter Password" name="password">
+                        <label for="101">
+                            <input class="check" type="checkbox" onclick="myfunction()" id="101"> Show Password
+                        </label>
+                    </div>
+                </div>
+                <div>
+                    <div class="submit">
+                        <button class="sub" onclick="func()">Log in</button>
+                    </div>
+                    <div style="display:flex;justify-content: space-between;">
+
+                        <label for="rem">
+                            <input class="check" type="checkbox" value="Remember me" id="rem"> Remember Me
+                        </label>
+                        <a href="forget.html" style="text-decoration:none">Forgot Your Password?</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function myfunction() {
+            let a = document.getElementById("pwd");
+            if (a.type == "password") {
+                a.type = "text";
+            }
+            else if (a.type == "text") {
+                a.type = "password";
+            }
+        }
+        function func() {
+            let name = document.getElementById("usname").value;
+            let psd = document.getElementById("pwd").value;
+            let p = document.getElementById("perr");
+            let u = document.getElementById("uerr");
+            if (name.length > 12 && name.search(/[A-Z]/g) == 0) {
+                u.innerHTML = "";
+            }
+            else {
+                u.innerHTML = "*Username must have atleast 12 characters and first letter must be capital";
+            }
+            if (psd.length > 8 && psd.match(/[A-Z]/g) && psd.match(/[0-9]/g) && psd.match(/[a-z]/g) && psd.match(/[!@#$%^&*]/g)) {
+                p.innerHTML = "";
+            }
+            else {
+                p.innerHTML = "*Password(min 8 characters) must be a combination of uppercase letters, lowercase letters, numbers, and symbols."
+            }
+            if (u.innerHTML == "" && p.innerHTML == "") {
+                window.open("loginsuccessfull.html", "_self");
+            }
+        }
+    </script>
+</body>
+
+</html>

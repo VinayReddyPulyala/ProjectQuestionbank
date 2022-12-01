@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>week3task3</title>
+    <style>
+        table,th,td{
+            border:2px solid black;
+            border-collapse: collapse;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <table id="arrtable"></table>
+    <script>
+        let a=document.getElementById("arrtable");
+        var T="";
+        let arr=[['Group Id','Project Title'],
+        ['G1','face recognition and other biometric recogition'],
+        ['G2','University Event Management'],
+        ['G3','University Event Management'],
+        ['G4','Entryway-a ticketless Entry System to Monuments'],
+        ['G5','Virtul class room for training medical students'],
+        ['G6','Develop a Software for categorization'],
+        ['G7','Virtul class room for training medical students'],
+        ['G8','Develop a Software for categorization'],
+        ['G9','face recognition and other biometric recogition'],
+        ['G10','University research Activity Monitoring System'],
+        ['G11','Entryway-a ticketless Entry System to Monuments'],
+        ['G12','Water Quality checking by using Mobile captured images and water quality parameters'],
+        ['G13','Vehicle registration and license monitoring system']];
+        for(let i=0;i<arr.length;i++){
+            if(i==0){
+                let s='<tr>';
+                    for(let j=0;j<arr[i].length;j++){
+                        s+='<th>'+arr[i][j]+'</th>';
+                    }
+                    s+='</tr>';
+                    T+=s;
+            }
+            else{
+                let s='<tr>';
+                    for(let j=0;j<arr[i].length;j++){
+                        s+='<td>'+arr[i][j]+'</td>';
+                    }
+                    s+='</tr>';
+                    T+=s;
+
+            }
+        }
+        a.innerHTML=T;
+    </script>
+</body>
+</html>

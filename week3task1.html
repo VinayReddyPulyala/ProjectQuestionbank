@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>week3task3</title>
+    <style>
+        *{
+            font-size:17px;
+        }
+        button{
+            margin:10px;
+            display:block;
+        }
+    </style>
+</head>
+<body>
+        <input id="number" type="text">
+        <div id="err" style="font-size:14px"></div>
+        <button onclick="wordtonumber()">convert</button>
+        <input id="wdnum" type="text">
+        <script>
+            let o=['','One ','Two ','Three ','Four ','Five ','Six ','Seven ','Eight ','Nine '];
+            function twodigit(n){
+                if(Math.floor(n/10)==1){
+                    let a=['Ten ','Eleven ','Twelve ','Thirteen ','Fourteen ','Fifteen ','Sixteen ','Seventeen ','Eighteen ','Nineteen '];
+                    return a[n%10];
+                }
+                else{
+                    let a=['','','Twenty ','Thirty ','Forty ','Fifty ','Sixty ','Seventy ','Eighty ','Ninty '];
+                    return a[Math.floor(n/10)]+o[n%10];
+                }
+            }
+            function threedigit(n){
+                return o[Math.floor(n/100)]+"Hundred "+twodigit(n%100);
+            }
+            function wordtonumber(){
+                let e=document.getElementById("err");
+                let nbr=document.getElementById("number");
+                let w=document.getElementById("wdnum");
+                e.innerHTML="";
+                let n=nbr.value;
+                 if(n<10){
+                    let o=['Zero','One ','Two ','Three ','Four ','Five ','Six ','Seven ','Eight ','Nine '];
+                    w.value=o[n];
+                }
+                else if( n<100){
+                    w.value=twodigit(n);
+                }
+                else if(n<1000){
+                    w.value=threedigit(n);
+                }
+                else{
+                    nbr.value="";
+                    w.value="";
+                    e.innerHTML="* number should be less than 1000";
+                    e.style.color="red";
+                }
+            }
+        </script>
+</body>
+</html>
