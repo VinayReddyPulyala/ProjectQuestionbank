@@ -1,0 +1,217 @@
+body {
+  background-attachment: fixed;
+  background-image: url("https://c1.wallpaperflare.com/preview/127/366/443/library-book-bookshelf-read.jpg");
+}
+
+.loginpage {
+  max-width: 380px;
+  background-color: #F7F7F7;
+  box-shadow: 30px 10px 30px 10px rgba(0, 0, 0, 0.58);
+}
+
+.loginhead {
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.inp {
+  width: 100%;
+  height: 60px;
+  background-color: white;
+  border: none;
+  border-radius: 15px;
+  padding-left: 20px;
+  box-shadow: 10px 5px 15px 5px rgba(158, 153, 153, 0.58);
+}
+
+.submit {
+  display: flex;
+  justify-content:center;
+}
+
+.check {
+  width: 14px;
+  height: 12px;
+}
+
+
+.sub {
+  width: 100%;
+  height: 60px;
+  border: none;
+  border-radius: 15px;
+  margin-top: 70px;
+  text-align: center;
+  font-weight: bold;
+  font-size: medium;
+  background-color: black;
+  color: white;
+  box-shadow: 10px 5px 15px 5px rgba(158, 153, 153, 0.58);
+  transition: 0.5s;
+}
+
+.sub:hover {
+  opacity: 50%;
+}
+
+#perr,#uerr {
+  margin: 0px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 13px;
+  color: red;
+}
+.qsn {
+  margin-top: 1%;
+  background-color: white;
+  border: 2px solid black
+
+}
+
+.slct {
+  margin: 1rem;
+  height: 38px;
+  font-size: large;
+  background-color: #F7F7F7;
+  border-radius: 8px;
+}
+
+.inp2 {
+  padding-left: 10px;
+  width: 200px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid black;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.5rem;
+}
+
+textarea {
+  font-size: large;
+}
+
+.bton2 {
+  margin: 15px 0px 0px 10px;
+  background-color: #068932 ;
+  width: 140px;
+  height: 45px;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.sub2 {
+  background-color: #F7F7F7;
+  color: black;
+  transition: 0.6s;
+}
+
+.sub2:hover {
+  opacity: 100% !important;
+  background-color: black;
+  color: white;
+}
+
+.bton2:hover {
+  opacity: 50%;
+}
+
+.mov {
+  background-color: #F7F7F7;
+  width: 50px;
+  height: 28px;
+  color: black;
+}
+
+.mov:hover {
+  opacity: 100%;
+  background-color: #068932;
+  color: white;
+}
+.cntr {
+  background-color: white;
+  padding: 20px;
+  height: 100%;
+}
+
+.slct3 {
+  margin:0px !important;
+  height: 40px;
+  border: 2px solid black;
+}
+
+.bton {
+  width: 80px;
+  height: 37px;
+  border: 1px solid black;
+  border-radius: 8px;
+  transition: 0.5s;
+}
+
+.bton:hover {
+  opacity: 50%;
+}
+
+.questions {
+  margin-bottom: 20px;
+  border: 1px solid black;
+  height: 100px;
+
+}
+
+.cntr>div {
+  margin: 20px;
+}
+
+.choice {
+  display: flex;
+  justify-content: space-between;
+}
+
+.set {
+  width: 150px;
+  background-color: #068932;
+  color: white;
+  font-weight: 600;
+}
+.Accept{
+  background-color:#068932;
+  color:white;
+}
+.Reject{
+  background-color:red;
+  color:white;
+}
+select {
+  background-color: #F7F7F7;
+  display: block;
+  height: 40px;
+  border: 2px solid black;
+  border-radius: 8px;
+  margin: 20px;
+}
+.inp4 {
+  margin: 20px;
+  height: 35px;
+  border-radius: 8px;
+  border: 1px solid black;
+}
+.set {
+  width: 80px;
+  height: 37px;
+  border: 1px solid black;
+  border-radius: 8px;
+  transition: 0.5s;
+  width: 150px;
+  background-color: #068932;
+  color: white;
+  font-weight: 600;
+}
+.set:hover{
+  opacity:0.8;
+}
