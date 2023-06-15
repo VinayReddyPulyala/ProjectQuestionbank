@@ -1,36 +1,43 @@
-const companies = [
-    { name: "Company one", category: "Finance", start: 1981, end: 2004 },
-    { name: "Company two", category: "Retail", start: 1992, end: 2008 },
-    { name: "Company three", category: "Auto", start: 1999, end: 2007 },
-    { name: "Company four", category: "Retail", start: 1989, end: 2010 },
-    { name: "Company five", category: "Technology", start: 2009, end: 2014 },
-    { name: "Company six", category: "Finance", start: 1987, end: 2010 },
-    { name: "Company seven", category: "Auto", start: 1986, end: 1996 },
-    { name: "Company eight", category: "Technology", start: 2011, end: 2016 },
-    { name: "Company nine", category: "Retail", start: 1981, end: 1989 },
-];
-companies.forEach(func);
-function func(value) {
-    console.log(value.name);
-}
+import express from "express";
+import dotenv from 'dotenv';
 
-companies.forEach(func1);
-function func1(value) {
-    if (value.start > 1987) {
-        console.log(value.name);
+import userRoute from './routes/user.js';
+import QuestionsRoute from './routes/Questions.js';
+import mongoose from 'mongoose';
+import cors from 'cors';
+
+mongoose.set('strictQuery', true);
+const app = express();
+app.use(express.json());
+app.use(cors());
+dotenv.config();
+const mongooseconnect = async () => {
+    try {
+        await mongoose.connect(process.env.mongo, () => {
+            console.log("Succesfully connected to mongodb");
+        });
+    }
+    catch (err) {
+        console.log(err);
     }
 }
 
-const person = {
-    name: "Vinay",
-    college: "KMIT",
-    branch: "CSM-A",
-    address: {
-        street: "Hari vihar colony"
-    }
-};
-// let {street}=person.address;
-// let { address } = person;
-// let { street } = address;
-let { address: { street } } = person;
-console.log(street);
+app.use('/api/users', userRoute);
+app.use('/api/Questions', QuestionsRoute);
+app.use((err, req, res, next) => {
+    const errorStatus = err.status || 500
+    const errorMessage = err.message || "Something went wrong"
+    return res.status(errorStatus).json({
+        sucess: false,
+        status: errorStatus,
+        message: errorMessage,
+        stack: err.stack,
+    });
+})
+app.listen(8800, () => {
+    mongooseconnect();
+    console.log("Connected to server");
+});
+app.get('/', (req, res) => {
+    res.send("<strong>This is the API we use!!!<strong>");
+});
